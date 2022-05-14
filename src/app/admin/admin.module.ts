@@ -18,13 +18,16 @@ import { EditWorkComponent } from './pages/works/edit-work/edit-work.component';
 import { ListWorkComponent } from './pages/works/list-work/list-work.component';
 import { DetaiWorkComponent } from './pages/works/detai-work/detai-work.component';
 import { AsideComponent } from './layouts/aside/aside.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [IndexComponent, HeaderComponent, FooterComponent, FixedComponent, DashboardComponent, LoginComponent, RegesterComponent, RetrieveComponent, AddProjectComponent, ListProjectComponent, EditProjectComponent, AddWorkComponent, EditWorkComponent, ListWorkComponent, AsideComponent,DetaiWorkComponent],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

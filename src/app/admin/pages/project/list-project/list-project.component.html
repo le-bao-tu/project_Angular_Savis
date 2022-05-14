@@ -27,40 +27,30 @@
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">STT</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">#</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
                   <th class="text-secondary opacity-7"></th>
                   <th class="text-secondary opacity-7"></th>
                 </tr>
               </thead>
               <tbody>
+                <tr *ngFor= "let item of data.data.content">
+                  <td>{{item.id}}</td>
+                  <td>{{item.name}}</td>
 
-
-
-                <tr>
                   <td>
-                    <div class="d-flex px-2 py-1">
-
-                      <div class="d-flex flex-column justify-content-center">
-                        <h6 class="mb-0 text-sm">1</h6>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <p class="text-xs font-weight-bold mb-0">trường</p>
-                  </td>
-                  <td class="align-middle text-center text-sm">
-                    <span class="badge badge-sm bg-gradient-success">Online</span>
+                    <span class="  badge badge-sm bg-gradient-success">{{item.status == 1?"Online":""}}</span>
+                    <span class=" badge badge-sm bg-gradient-danger">{{item.status ==0?"Offline":""}}</span>
                   </td>
                   <td class="align-middle">
-                    <a routerLink="/edit-project" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit ">
+                    <a routerLink="/edit-project/{{item.id}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit ">
                       <span class="badge badge-sm bg-gradient-info">Edit</span>
                     </a>
                   </td>
 
                   <td class="align-middle">
-                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Delete ">
+                    <a (click)= "delete(item.id)" class="text-secondary font-weight-bold text-xs" style="cursor: pointer;">
                       <span class="badge badge-sm bg-gradient-primary">Delete</span>
                     </a>
                   </td>
